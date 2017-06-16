@@ -42,7 +42,7 @@ class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             audioPlayer.enableRate = true
             audioPlayer.rate = 1.5
             audioPlayer.prepareToPlay()
-            //audioPlayer.play()
+            audioPlayer.play()
         } catch let err as NSError {
             print("Error initializaing audio player: \(err.debugDescription)")
         }

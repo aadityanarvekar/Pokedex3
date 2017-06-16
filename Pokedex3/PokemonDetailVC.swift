@@ -38,18 +38,24 @@ class PokemonDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateBasicPokemonInfo()
-        PokemonList.sharedInstace.downloadPokemonDetails(pokeId: selectedPokemon.pokedexId) { completedDescriptionDownload in
-            if completedDescriptionDownload {
-                DispatchQueue.main.async {
-                    self.updateDescriptionDetailsForPokemon()
+        if selectedPokemon.pokemonDownloadComplete {
+            updateDetailsForPokemon()
+            updateDescriptionDetailsForPokemon()
+        } else {
+            selectedPokemon.downloadPokemonDetails() { completedDescriptionDownload in
+                if completedDescriptionDownload {
+                    DispatchQueue.main.async {
+                        self.updateDescriptionDetailsForPokemon()
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.updateDetailsForPokemon()
+                    }
                 }
-            } else {
-                DispatchQueue.main.async {
-                    self.updateDetailsForPokemon()
-                }
+                
             }
-            
         }
+        
     }
 
     override func didReceiveMemoryWarning() {
