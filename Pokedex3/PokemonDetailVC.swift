@@ -66,12 +66,6 @@ class PokemonDetailVC: UIViewController {
     @IBAction func backBtnTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-
-    @IBAction func segmentBtnSelected(_ sender: Any) {
-        if let seg = sender as? UISegmentedControl {
-            print(seg.selectedSegmentIndex)
-        }
-    }
     
     func updateDetailsForPokemon() {
         descriptionTxt.scrollRangeToVisible(NSMakeRange(0, 0))
@@ -98,4 +92,17 @@ class PokemonDetailVC: UIViewController {
         mainImg.image = UIImage(named: "\(selectedPokemon.pokedexId)")
         currentEvolutionImg.image = UIImage(named: "\(selectedPokemon.pokedexId)")
     }
+    
+    
+    @IBAction func shareBtnTapped(_ sender: Any) {
+        print("Share Pokemon Details")
+        let pokeImage = UIImage(named: "\(selectedPokemon.pokedexId)")
+        let pokeName = selectedPokemon.name
+        let pokeDescription = selectedPokemon.description
+        
+        let activityViewController = UIActivityViewController(activityItems: [pokeName, pokeDescription, pokeImage as Any], applicationActivities: nil)
+        present(activityViewController, animated: true, completion: nil)
+        
+    }
+    
 }
