@@ -14,8 +14,7 @@ class PokemonDetailVC: UIViewController {
     @IBOutlet weak var activityIndicator: NVActivityIndicatorView!
     private var descriptionDetailsUpdated: Bool! = false
     private var detailsUpdated: Bool! = false
-    
-    
+    var swipeGesture: UISwipeGestureRecognizer!
     
     private var _selectedPokemon: Pokemon!
     var selectedPokemon: Pokemon {
@@ -64,6 +63,9 @@ class PokemonDetailVC: UIViewController {
             }
         }
         
+        // Initialize Swipe Gesture
+        swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(PokemonDetailVC.handleSwipe))
+        swipeGesture.direction = .down
     }
 
     override func didReceiveMemoryWarning() {
@@ -92,6 +94,7 @@ class PokemonDetailVC: UIViewController {
         if descriptionDetailsUpdated {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                 self.activityIndicator.stopAnimating()
+                self.view.addGestureRecognizer(self.swipeGesture)
             })
         }
         
@@ -103,6 +106,7 @@ class PokemonDetailVC: UIViewController {
         if detailsUpdated {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                 self.activityIndicator.stopAnimating()
+                self.view.addGestureRecognizer(self.swipeGesture)
             })
         }
     }
@@ -126,4 +130,8 @@ class PokemonDetailVC: UIViewController {
         
     }
     
+    func handleSwipe() {
+        print("Swipe Gesture Recongnized")
+        dismiss(animated: true, completion: nil)
+    }
 }

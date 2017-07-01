@@ -204,7 +204,7 @@
                     <connections>
                         <outlet property="collectionView" destination="e43-hk-6vF" id="eJb-iE-zPZ"/>
                         <outlet property="searchBar" destination="RCJ-Ps-Kea" id="s3H-E9-u5W"/>
-                        <segue destination="qj0-4o-mxS" kind="showDetail" identifier="PokenonDetailVC" id="r25-9j-7mG"/>
+                        <segue destination="qj0-4o-mxS" kind="show" identifier="PokenonDetailVC" action="showDetailViewController:sender:" id="r25-9j-7mG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
