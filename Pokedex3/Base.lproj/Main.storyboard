@@ -491,6 +491,20 @@
                                     <constraint firstAttribute="trailing" secondItem="s5j-nU-GNN" secondAttribute="trailing" id="reM-P0-xbR"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Fsu-iv-k67" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="130" y="254" width="60" height="60"/>
+                                <color key="tintColor" red="0.87058823529999996" green="0.26274509800000001" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="0xC-9B-Wuh"/>
+                                    <constraint firstAttribute="width" constant="60" id="i6k-Kl-3BT"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="lineScalePulseOutRapid"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.86855191659999997" green="0.86855191659999997" blue="0.86855191659999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="og4-TH-AtZ">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <constraints>
@@ -515,6 +529,7 @@
                             <constraint firstItem="uhA-dP-khl" firstAttribute="top" secondItem="Pkw-qu-Zj3" secondAttribute="bottom" constant="8" id="907-69-gw0"/>
                             <constraint firstAttribute="trailing" secondItem="og4-TH-AtZ" secondAttribute="trailing" id="A9W-0D-Zzl"/>
                             <constraint firstItem="Pkw-qu-Zj3" firstAttribute="top" secondItem="cz5-4d-gwK" secondAttribute="bottom" constant="8" id="APL-XT-61b"/>
+                            <constraint firstItem="Fsu-iv-k67" firstAttribute="centerX" secondItem="wLb-Sf-ZFt" secondAttribute="centerX" id="B4U-xX-gdy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Pkw-qu-Zj3" secondAttribute="trailing" id="BPQ-R8-BoF"/>
                             <constraint firstAttribute="trailing" secondItem="cz5-4d-gwK" secondAttribute="trailing" id="GdC-Wz-naM"/>
                             <constraint firstItem="cz5-4d-gwK" firstAttribute="leading" secondItem="wLb-Sf-ZFt" secondAttribute="leading" id="Ojg-UN-a8f"/>
@@ -524,6 +539,7 @@
                             <constraint firstItem="uhA-dP-khl" firstAttribute="leading" secondItem="wLb-Sf-ZFt" secondAttribute="leading" id="XbI-H0-X2S"/>
                             <constraint firstItem="aJd-ut-n2j" firstAttribute="top" secondItem="cz5-4d-gwK" secondAttribute="bottom" id="Z67-tT-yzV"/>
                             <constraint firstItem="uhA-dP-khl" firstAttribute="height" secondItem="aJd-ut-n2j" secondAttribute="height" multiplier="0.3" id="aCz-76-Ne9"/>
+                            <constraint firstItem="Fsu-iv-k67" firstAttribute="centerY" secondItem="wLb-Sf-ZFt" secondAttribute="centerY" id="ayD-iy-Z92"/>
                             <constraint firstItem="og4-TH-AtZ" firstAttribute="top" secondItem="uhA-dP-khl" secondAttribute="bottom" constant="8" id="hVy-zA-Ohm"/>
                             <constraint firstItem="aJd-ut-n2j" firstAttribute="leading" secondItem="wLb-Sf-ZFt" secondAttribute="leading" id="jaT-SY-PrT"/>
                             <constraint firstItem="Pkw-qu-Zj3" firstAttribute="leading" secondItem="wLb-Sf-ZFt" secondAttribute="leadingMargin" id="tlU-hC-JQe"/>
@@ -531,6 +547,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="Fsu-iv-k67" id="ccy-ru-oLP"/>
                         <outlet property="baseAttackLbl" destination="5q9-rT-ZNa" id="1IJ-RB-BCt"/>
                         <outlet property="currentEvolutionImg" destination="8pn-Gw-ntm" id="V4P-sT-KB8"/>
                         <outlet property="defenseLbl" destination="L47-aj-A7o" id="czl-JX-pZD"/>
@@ -547,7 +564,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bH6-xg-By3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-84" y="271.21439280359823"/>
+            <point key="canvasLocation" x="-84.375" y="269.36619718309862"/>
         </scene>
     </scenes>
     <resources>

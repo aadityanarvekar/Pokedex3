@@ -7,8 +7,15 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 class PokemonDetailVC: UIViewController {
+    
+    @IBOutlet weak var activityIndicator: NVActivityIndicatorView!
+    private var descriptionDetailsUpdated: Bool! = false
+    private var detailsUpdated: Bool! = false
+    
+    
     
     private var _selectedPokemon: Pokemon!
     var selectedPokemon: Pokemon {
@@ -37,6 +44,7 @@ class PokemonDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.startAnimating()
         updateBasicPokemonInfo()
         if selectedPokemon.pokemonDownloadComplete {
             updateDetailsForPokemon()
@@ -80,10 +88,23 @@ class PokemonDetailVC: UIViewController {
         } else {
             nextEvolutionImg.image = UIImage(named: "\(selectedPokemon.nextEvolutionPokemon.pokedexId)")
         }
+        detailsUpdated = true
+        if descriptionDetailsUpdated {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                self.activityIndicator.stopAnimating()
+            })
+        }
+        
     }
     
     func updateDescriptionDetailsForPokemon() {
         descriptionTxt.text = selectedPokemon.description
+        descriptionDetailsUpdated = true
+        if detailsUpdated {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                self.activityIndicator.stopAnimating()
+            })
+        }
     }
     
     func updateBasicPokemonInfo() {
